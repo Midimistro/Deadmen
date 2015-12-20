@@ -51,17 +51,11 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
@@ -84,12 +78,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Game_Assets\gamelogic\Attack.cs" />
+    <Compile Include="Assets\SceneTransitioner.cs" />
     <Compile Include="Assets\Scripts\Animation\CharacterController.cs" />
     <Compile Include="Assets\Scripts\Animation\Idling.cs" />
     <Compile Include="Assets\Scripts\Animation\ItemRebounce.cs" />
     <Compile Include="Assets\Scripts\Animation\Resting.cs" />
     <Compile Include="Assets\Scripts\Animation\Walking.cs" />
     <Compile Include="Assets\Scripts\Engines\Items\OnScreenItem.cs" />
+    <Compile Include="Assets\Scripts\UI\UI_Cursor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
