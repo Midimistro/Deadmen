@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-//using DeadMen.Models.Items;
+using DeadMen.API.Models.Items;
 using System.Linq;
 
 public class CharacterController : MonoBehaviour {
@@ -36,7 +36,7 @@ public class CharacterController : MonoBehaviour {
 
     public Animator anim;
     public ParticleSystem BloodSplatter;
-    //public List<Item> Inventory;
+    public List<Item> Inventory;
     //public List<Item> Weapons { get { return Inventory.Where(item => item is Weapon).ToList(); } }
     //public List<Item> Armors { get { return Inventory.Where(item => item is Armor).ToList(); } }
 
