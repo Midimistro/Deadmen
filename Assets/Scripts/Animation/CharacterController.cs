@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using DeadMen.Models.Items;
+//using DeadMen.Models.Items;
 using System.Linq;
 
 public class CharacterController : MonoBehaviour {
@@ -36,9 +36,9 @@ public class CharacterController : MonoBehaviour {
 
     public Animator anim;
     public ParticleSystem BloodSplatter;
-    public List<Item> Inventory;
-    public List<Item> Weapons { get { return Inventory.Where(item => item is Weapon).ToList(); } }
-    public List<Item> Armors { get { return Inventory.Where(item => item is Armor).ToList(); } }
+    //public List<Item> Inventory;
+    //public List<Item> Weapons { get { return Inventory.Where(item => item is Weapon).ToList(); } }
+    //public List<Item> Armors { get { return Inventory.Where(item => item is Armor).ToList(); } }
 
     // Use this for initialization
     void Start () {
@@ -192,7 +192,7 @@ public class CharacterController : MonoBehaviour {
         resting = true;
     }
 
-    void FindSelectedItem()
+    public void FindSelectedItem()
     {
         //if (Selectables.Count == 0) return;
         //var rigidBody = GetComponent<Rigidbody>();
@@ -216,7 +216,7 @@ public class CharacterController : MonoBehaviour {
         
     }
 
-    void takeDamage(int damageToTake)
+    public void takeDamage(int damageToTake)
     {
         if (Health > 0) Health -= damageToTake;
         if (Health < 0) Health = 0;
@@ -224,7 +224,7 @@ public class CharacterController : MonoBehaviour {
         if (Health == 0) Dead();
     }
 
-    void Dead()
+    public void Dead()
     {
         // throw IDKYERDEADError();
     }

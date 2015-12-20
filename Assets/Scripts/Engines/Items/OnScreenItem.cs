@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using DeadMen.Models.Items;
+//using DeadMen.Models.Items;
 
 public class OnScreenItem : MonoBehaviour {
 
@@ -11,8 +11,6 @@ public class OnScreenItem : MonoBehaviour {
     public Transform groundChecker;
     public LayerMask whatIsGround;
     public float groundRad = 0.2f;
-
-    public 
 
     // Use this for initialization
     void Start () {
