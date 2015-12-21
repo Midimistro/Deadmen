@@ -69,6 +69,9 @@
     <Reference Include="DeadMen.API">
       <HintPath>Assets\Libraries\DeadMen.API.dll</HintPath>
     </Reference>
+    <Reference Include="DeadMen.API.Client">
+      <HintPath>Assets\Libraries\DeadMen.API.Client.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />

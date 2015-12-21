@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-//using DeadMen.Models.Items;
+using DeadMen.API.Models;
 
 public class OnScreenItem : MonoBehaviour {
 

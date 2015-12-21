@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DeadMen.API.Models.Items
+namespace DeadMen.API.Models
 {
     public class Item
     {

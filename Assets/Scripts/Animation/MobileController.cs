@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using DeadMen.API.Models.Items;
+using DeadMen.API.Models;
 using System.Linq;
 
-public class CharacterController : MonoBehaviour {
+public class MobileController : MonoBehaviour {
     public readonly float Speed_x = 6f;
     public readonly float Speed_z = 2.5f;
     public readonly float Speed_y = 50f;
@@ -45,7 +45,7 @@ public class CharacterController : MonoBehaviour {
         //anim = localSprite.GetComponent<Animator>();
 	}
 
-    public CharacterController()
+    public MobileController()
     {
     }
 
