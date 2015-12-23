@@ -11,12 +11,9 @@ public class MobileController : MonoBehaviour {
     bool rightFace = true;
     public int stance = 1;
     public int weaponImage = 1;
-    public int Health = 100;
 
-    public int Build = 10;
-    public int Speed = 10;
-    public int Will = 10;
-    public int Intelligence = 10;
+    public Stats stats;
+    public int speed { get { return stats.SPD; } set { stats.SPD = value; } }
 
     public bool tirade = false; // sorry.  This is a cooler way to say 'attempting a combo' or, 'in combo'
     public bool resting = false;
@@ -47,6 +44,10 @@ public class MobileController : MonoBehaviour {
 
     public MobileController()
     {
+        stats = new Stats { STR = 10, SPD = 2, INT = 10, WLP = 10 };
+        Speed_x = 0.6f * stats.SPD;
+        Speed_z = 0.25f * stats.SPD;
+        Speed_y = 5f * stats.SPD;
     }
 
     void Update()
@@ -218,10 +219,10 @@ public class MobileController : MonoBehaviour {
 
     public void takeDamage(int damageToTake)
     {
-        if (Health > 0) Health -= damageToTake;
-        if (Health < 0) Health = 0;
+        //if (Health > 0) Health -= damageToTake;
+        //if (Health < 0) Health = 0;
 
-        if (Health == 0) Dead();
+        //if (Health == 0) Dead();
     }
 
     public void Dead()
