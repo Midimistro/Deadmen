@@ -66,11 +66,11 @@
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
-    <Reference Include="DeadMen.API">
-      <HintPath>Assets\Libraries\DeadMen.API.dll</HintPath>
-    </Reference>
     <Reference Include="DeadMen.API.Client">
       <HintPath>Assets\Libraries\DeadMen.API.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="DeadMen.API">
+      <HintPath>Assets\Libraries\DeadMen.API.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

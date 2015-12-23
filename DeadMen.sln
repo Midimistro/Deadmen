@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadMen.CSharp.Plugins", "DeadMen.CSharp.Plugins.csproj", "{E25C82D0-0D8F-3CD3-28D1-05F74792E571}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeadMen.CSharp", "DeadMen.CSharp.csproj", "{45F88B79-DFB4-23FC-8B20-3EB6C4506865}"
