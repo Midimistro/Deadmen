@@ -5,14 +5,14 @@ using System.Text;
 
 namespace DeadMen.API.Models
 {
-    public class Mobile
+    public class Stats
     {
-        public int Id;
-        public string name;
-        public int health;
-        public Stats stats;
+        public int STR;
+        public int INT;
+        public int SPD;
+        public int WLP;
 
-        public Mobile()
+        public Stats()
         {
 
         }
