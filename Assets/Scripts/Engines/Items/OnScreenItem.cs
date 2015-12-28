@@ -11,10 +11,11 @@ public class OnScreenItem : MonoBehaviour {
     public Transform groundChecker;
     public LayerMask whatIsGround;
     public float groundRad = 0.2f;
+    public Item ActualItem;
 
     // Use this for initialization
     void Start () {
-        launch();
+        LaunchUpwards();
     }
     
     void FixedUpdate () {
@@ -26,7 +27,19 @@ public class OnScreenItem : MonoBehaviour {
         selected = false;
     }
 
-    public void launch()
+    public void LaunchPickup(Mobile mobilePickingUp)
+    {
+        if(mobilePickingUp.Inventory.Count < mobilePickingUp.InventoryMax)
+        {
+            Debug.Log("Picking up!");
+            mobilePickingUp.Inventory.Add(ActualItem);
+        } else
+        {
+            LaunchUpwards();
+        }
+    }
+
+    public void LaunchUpwards()
     {
         var physicsObject = GetComponent<Rigidbody>();
         if (!physicsObject) return;

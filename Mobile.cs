@@ -11,10 +11,17 @@ namespace DeadMen.API.Models
         public string name;
         public int health;
         public Stats stats;
+        public List<Item> Inventory;
+        public int InventoryMax;
 
         public Mobile()
         {
-
+            Id = 0;
+            name = "Debug";
+            health = 100;
+            stats = new Stats();
+            Inventory = new List<Item>();
+            InventoryMax = 20;
         }
     }
 }

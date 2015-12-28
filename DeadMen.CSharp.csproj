@@ -66,9 +66,6 @@
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
-    <Reference Include="DeadMen.API.Client">
-      <HintPath>Assets\Libraries\DeadMen.API.Client.dll</HintPath>
-    </Reference>
     <Reference Include="DeadMen.API">
       <HintPath>Assets\Libraries\DeadMen.API.dll</HintPath>
     </Reference>
@@ -80,20 +77,26 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BackBound.cs" />
-    <Compile Include="Assets\DungeonFloorEngine.cs" />
-    <Compile Include="Assets\DungeonRoomEngine.cs" />
-    <Compile Include="Assets\ForeBound.cs" />
-    <Compile Include="Assets\Game_Assets\gamelogic\Attack.cs" />
-    <Compile Include="Assets\LeftBound.cs" />
-    <Compile Include="Assets\PlayerController.cs" />
-    <Compile Include="Assets\RightBound.cs" />
+    <Compile Include="Assets\Resources\Game_Assets\gamelogic\Attack.cs" />
     <Compile Include="Assets\SceneTransitioner.cs" />
     <Compile Include="Assets\Scripts\Animation\Idling.cs" />
     <Compile Include="Assets\Scripts\Animation\ItemRebounce.cs" />
-    <Compile Include="Assets\Scripts\Animation\MobileController.cs" />
+    <Compile Include="Assets\Scripts\Animation\MobileAnimationController.cs" />
+    <Compile Include="Assets\Scripts\Animation\ObstacleAnimationController.cs" />
     <Compile Include="Assets\Scripts\Animation\Resting.cs" />
     <Compile Include="Assets\Scripts\Animation\Walking.cs" />
+    <Compile Include="Assets\Scripts\Engines\Areas\BackBound.cs" />
+    <Compile Include="Assets\Scripts\Engines\Areas\DungeonLogicManager.cs" />
+    <Compile Include="Assets\Scripts\Engines\Areas\FloorLogicManager.cs" />
+    <Compile Include="Assets\Scripts\Engines\Areas\ForeBound.cs" />
+    <Compile Include="Assets\Scripts\Engines\Areas\InGameLogicManager.cs" />
+    <Compile Include="Assets\Scripts\Engines\Areas\LeftBound.cs" />
+    <Compile Include="Assets\Scripts\Engines\Areas\RightBound.cs" />
+    <Compile Include="Assets\Scripts\Engines\Areas\RoomLogicManager.cs" />
+    <Compile Include="Assets\Scripts\Engines\Input\AIMobileManager.cs" />
+    <Compile Include="Assets\Scripts\Engines\Input\MobileInput.cs" />
+    <Compile Include="Assets\Scripts\Engines\Input\PlayerLogicManager.cs" />
+    <Compile Include="Assets\Scripts\Engines\Input\SkillLogicManager.cs" />
     <Compile Include="Assets\Scripts\Engines\Items\OnScreenItem.cs" />
     <Compile Include="Assets\Scripts\UI\UI_Cursor.cs" />
   </ItemGroup>

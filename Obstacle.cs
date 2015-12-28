@@ -9,7 +9,7 @@ namespace DeadMen.API.Models
     {
         public float X;
         public float Z;
-        public float Y = 0;
+        public float Y = 3.5f;
         public string ObjectId;
     }
 }

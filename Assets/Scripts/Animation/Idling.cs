@@ -6,7 +6,7 @@ public class Idling : StateMachineBehaviour {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        var character = animator.GetComponentsInParent<MobileController>()[0];
+        var character = animator.GetComponentsInParent<MobileAnimationController>()[0];
 
         if (!character)
         {
