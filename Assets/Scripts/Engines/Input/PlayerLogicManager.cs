@@ -28,9 +28,7 @@ public class PlayerLogicManager : MonoBehaviour {
 	
     void TieAnimationToModel()
     {
-        ControlledMobileAnimation.Speed_x = 0.3f * MobileModel.stats.SPD;
-        ControlledMobileAnimation.Speed_z = 0.125f * MobileModel.stats.SPD;
-        ControlledMobileAnimation.Speed_y = 2.5f * MobileModel.stats.SPD;
+        ControlledMobileAnimation.InitializeMobileMoveSpeed(MobileModel.stats);
     }
 
     void FixedUpdate()
@@ -79,8 +77,14 @@ public class PlayerLogicManager : MonoBehaviour {
 
         var horizontal = Input.GetAxis("Horizontal");
         var vertical = Input.GetAxis("Vertical");
-        if (horizontal != 0) { ControlledMobileAnimation.LaunchMoveX((horizontal > 0)); }
-        if (vertical != 0) { ControlledMobileAnimation.LaunchMoveZ((vertical > 0)); }
+        if (horizontal != 0) {
+            ControlledMobileAnimation.LaunchMoveX((horizontal > 0));
+        }
+        if (vertical != 0) {
+            ControlledMobileAnimation.LaunchMoveZ((vertical > 0));
+        }
+        horizontal = 0;
+        vertical = 0;
 
         PlayerInput.tickdown();
 

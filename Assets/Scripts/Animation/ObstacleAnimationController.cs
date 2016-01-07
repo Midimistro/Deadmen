@@ -21,7 +21,6 @@ public class ObstacleAnimationController : MonoBehaviour {
             if (meshRenderer != null)
             {
                 meshRenderer.material = Resources.Load(ObstacleMaterial) as Material;
-                Debug.Log("Load Material: "+ObstacleMaterial);
                 LoadedMaterialSemaphore = -1;
             }
             else
@@ -39,7 +38,6 @@ public class ObstacleAnimationController : MonoBehaviour {
 
     public void ChangeMaterial(string NewMaterial)
     {
-        Debug.Log("Set Material");
         ObstacleMaterial = NewMaterial;
         LoadedMaterialSemaphore = 0;
     }

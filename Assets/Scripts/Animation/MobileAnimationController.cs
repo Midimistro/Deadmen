@@ -8,8 +8,6 @@ public class MobileAnimationController : MonoBehaviour {
     public float Speed_x = 6f;
     public float Speed_z = 2.5f;
     public float Speed_y = 50f;
-    public float toMoveX = 0;
-    public float toMoveZ = 0;
     bool rightFace = true;
     public int stance = 1;
     public int weaponImage = 1;
@@ -18,8 +16,6 @@ public class MobileAnimationController : MonoBehaviour {
     public Animator anim;
     public ParticleSystem BloodSplatter;
     public List<Item> Inventory;
-    //public List<Item> Weapons { get { return Inventory.Where(item => item is Weapon).ToList(); } }
-    //public List<Item> Armors { get { return Inventory.Where(item => item is Armor).ToList(); } }
 
     public bool tirade = false; // sorry.  This is a cooler way to say 'attempting a combo' or, 'in combo'
     public bool resting = false;
@@ -27,7 +23,6 @@ public class MobileAnimationController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //anim = localSprite.GetComponent<Animator>();
 	}
 
     public MobileAnimationController()
@@ -41,39 +36,23 @@ public class MobileAnimationController : MonoBehaviour {
 	void FixedUpdate ()
     {
         if(rigidBody == null) { rigidBody = GetComponent<Rigidbody>(); }
-        var forwardThrust = 0f;
-
-        anim.SetBool("Moving", (toMoveX != 0 || toMoveZ != 0));
+                
         anim.SetBool("IsRight", rightFace);
-
-        if ((toMoveX > 0 && !rightFace) || (toMoveX < 0 && rightFace)) {
-            Flip();
+        if (rigidBody.velocity.sqrMagnitude < 0.1) {
+            anim.SetBool("Moving", false);
         }
-
-        if (!tirade)
-        {
-        }
-        else
-        {
-            toMoveX = 0;
-            toMoveZ = 0;
-        }
-
-        rigidBody.velocity = new Vector3(toMoveX * Speed_x + (rightFace ? forwardThrust : -forwardThrust), GetComponent<Rigidbody>().velocity.y, toMoveZ * Speed_z);
-        toMoveX = 0;
-        toMoveZ = 0;
     }
 
     void Flip()
     {
-        Debug.Log("Flip");
         rightFace = !rightFace;
-        Vector3 worldscale = GetComponent<Transform>().localScale;
-        Vector3 localposition = GetComponent<Transform>().position;
+        Vector3 worldscale = anim.GetComponent<Transform>().localScale;
         worldscale.x = -worldscale.x;
-        localposition.x += rightFace ? 0.3f : -0.3f;
-        GetComponent<Transform>().localScale = worldscale;
-        GetComponent<Transform>().position = localposition;
+        anim.GetComponent<Transform>().localScale = worldscale;
+
+        Vector3 localposition = anim.GetComponent<Transform>().position;
+        localposition.x += rightFace ? 1f : -1f;
+        anim.GetComponent<Transform>().position = localposition;
     }
 
     public void AttemptAttack(int AttackAnimation)
@@ -113,12 +92,24 @@ public class MobileAnimationController : MonoBehaviour {
 
     public void LaunchMoveX(bool Right)
     {
-        toMoveX = Right ? Speed_x : -Speed_x;
+        var toMoveX = Right ? 1 : -1;
+        rigidBody.AddForce(new Vector3(toMoveX * Speed_x, 0f, 0f));
+        //rigidBody.velocity = new Vector3(toMoveX * Speed_x, GetComponent<Rigidbody>().velocity.y, GetComponent<Rigidbody>().velocity.z);
+        anim.SetBool("Moving", true);
+
+        if ((toMoveX > 0 && !rightFace) || (toMoveX < 0 && rightFace))
+        {
+            Flip();
+        }
     }
 
     public void LaunchMoveZ(bool Fore)
     {
-        toMoveZ = Fore ? Speed_z : -Speed_z;
+        var toMoveZ = Fore ? 1 : -1;
+
+        rigidBody.AddForce(new Vector3(0f, 0f, toMoveZ * Speed_z));
+        //rigidBody.velocity = new Vector3(GetComponent<Rigidbody>().velocity.x, GetComponent<Rigidbody>().velocity.y, toMoveZ * Speed_z);
+        anim.SetBool("Moving", true);
     }
 
     public void LaunchJump()
@@ -157,5 +148,12 @@ public class MobileAnimationController : MonoBehaviour {
     void SplatBlood()
     {
         BloodSplatter.Play();
+    }
+
+    public void InitializeMobileMoveSpeed(Stats mobileModelStats)
+    {
+        Speed_x = 0.3f * mobileModelStats.SPD;
+        Speed_z = 0.125f * mobileModelStats.SPD;
+        Speed_y = 2.5f * mobileModelStats.SPD;
     }
 }

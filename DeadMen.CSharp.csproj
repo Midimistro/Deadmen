@@ -99,6 +99,8 @@
     <Compile Include="Assets\Scripts\Engines\Input\SkillLogicManager.cs" />
     <Compile Include="Assets\Scripts\Engines\Items\OnScreenItem.cs" />
     <Compile Include="Assets\Scripts\UI\UI_Cursor.cs" />
+    <Compile Include="Assets\TestSpriteLoader.cs" />
+    <Compile Include="Assets\loadDynamicSpriteSubslice.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

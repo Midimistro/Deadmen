@@ -58,7 +58,13 @@ public class RoomLogicManager : MonoBehaviour
             new Obstacle { X = 5.5f, Z = 1, Y = 3.0f, ObjectId = "Game_Assets/materials/DEV_Stone" },
             new Obstacle { X = 6.5f, Z = 1, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Bottom" }
         });
-        //SetupMobiles(null);
+        SetupMobiles(new List<Mobile>
+            {
+                new Mobile { health = 100, Id = 0, Inventory = new List<Item>(), InventoryMax = 10, name = "enemy 1", stats = new Stats { INT = 5, SPD = 5, STR = 5, WLP = 5 } },
+                new Mobile { health = 10, Id = 1, Inventory = new List<Item>(), InventoryMax = 10, name = "enemy 2", stats = new Stats { INT = 5, SPD = 5, STR = 5, WLP = 5 } },
+                new Mobile { health = 300, Id = 2, Inventory = new List<Item>(), InventoryMax = 10, name = "enemy 3", stats = new Stats { INT = 5, SPD = 5, STR = 5, WLP = 5 } }
+            }            
+        );
         //SetupSkylineObjects(null);
     }
 
@@ -87,9 +93,18 @@ public class RoomLogicManager : MonoBehaviour
         }
     }
 
-    public void SetupMobiles(List<Mobile> mobiles)
+    public void SetupMobiles(List<Mobile> loadedMobiles)
     {
-        throw new NotImplementedException();
+        foreach(Mobile mobileModel in loadedMobiles)
+        {
+            mobiles.Add(new AIMobileManager {
+                ControlledMobileAnimation = Instantiate(MobileBase, new Vector3(0, 0, 0), Quaternion.identity) as MobileAnimationController,
+                PlayerInput = new Assets.Scripts.Engines.Input.MobileInput(),
+                MobileModel = mobileModel,
+                WeaponClassID = 0,
+                WeaponSkinID = 0
+            });
+        }
     }
 
     public void SetupSkylineObjects(List<SkylineObject> skylineObjects)
