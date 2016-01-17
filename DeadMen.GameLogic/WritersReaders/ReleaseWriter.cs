@@ -83,5 +83,20 @@ namespace DeadMen.GameLogic.WritersReaders
                 return decrypted;
             }
         }
+
+        public string SaveFilePath(string fileName)
+        {
+            return string.Format("{0}{1}.DMsv", rootDataDirectory, fileName);
+        }
+
+        public string DataFilePath(string fileName)
+        {
+            return string.Format("{0}{1}.DMgd", gameDataDirectory, fileName);
+        }
+
+        public string RecordFilePath(string fileName)
+        {
+            return string.Format("{0}{1}.DMrec", saveDataDirectory, fileName);
+        }
     }
 }

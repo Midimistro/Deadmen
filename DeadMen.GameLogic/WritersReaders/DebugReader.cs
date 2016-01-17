@@ -1,23 +1,25 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.IO;
-using DeadMen.API.Models;
 
 namespace DeadMen.GameLogic.WritersReaders
 {
-    public class DebugWriter : IWriter
+    public class DebugReader : IReader
     {
         public static string rootDataDirectory = @"%AppData%\DeadMen\";
         public static string saveDataDirectory = rootDataDirectory + @"saves\";
         public static string gameDataDirectory = rootDataDirectory + @"data\";
 
-        static DebugWriter()
+        public bool FileExists(string filePath)
         {
-
+            return File.Exists(filePath);
         }
 
-        public void Write(string data, string fileFullPath)
+        public string Read(string fileFullPath)
         {
-            File.WriteAllBytes(fileFullPath, Encoding.UTF8.GetBytes(data));
+            return File.ReadAllBytes(fileFullPath).ToString();
         }
 
         public string SaveFilePath(string fileName)

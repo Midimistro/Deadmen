@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace DeadMen.API.Models
 {
@@ -11,7 +8,9 @@ namespace DeadMen.API.Models
         public List<GameEvent> Events;
         public List<Obstacle> Obstacles;
         public List<SkylineObject> SkylineObjects;
+        public List<Door> Doors;
 
+        // Potentially extraneous, given the roomlogicController might know how to handle this, better.
         public Room West;
         public Room East;
         public Room North;

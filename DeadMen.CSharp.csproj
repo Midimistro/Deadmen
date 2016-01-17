@@ -77,6 +77,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Door.cs" />
     <Compile Include="Assets\Resources\Game_Assets\gamelogic\Attack.cs" />
     <Compile Include="Assets\SceneTransitioner.cs" />
     <Compile Include="Assets\Scripts\Animation\Idling.cs" />

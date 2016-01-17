@@ -13,7 +13,48 @@ public class FloorLogicManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Rooms = new Dictionary<Vector2, Room>();
+        Rooms[new Vector2(0, 0)] = new Room
+        {
+            Depth = 8,
+            Width = 12,
+            Obstacles = new List<Obstacle>{
+            new Obstacle { X = -5.5f, Z = -2, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Bottom" },
+            new Obstacle { X = -4.5f, Z = -2, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Corner" },
+            new Obstacle { X = -3.5f, Z = -2, Y = 3.0f, ObjectId = "Game_Assets/materials/DEV_Stone" },
+            new Obstacle { X = -2.5f, Z = 1, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Bottom" },
+            new Obstacle { X = -1.5f, Z = 1, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Corner" },
+            new Obstacle { X = -0.5f, Z = -2, Y = 3.0f, ObjectId = "Game_Assets/materials/DEV_Stone" },
+            new Obstacle { X = 0.5f, Z = 1, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Bottom" },
+            new Obstacle { X = 1.5f, Z = 1, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Corner" },
+            new Obstacle { X = 2.5f, Z = -2, Y = 3.0f, ObjectId = "Game_Assets/materials/DEV_Stone" },
+            new Obstacle { X = 3.5f, Z = 1, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Bottom" },
+            new Obstacle { X = 4.5f, Z = 1, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Corner" },
+            new Obstacle { X = 5.5f, Z = 1, Y = 3.0f, ObjectId = "Game_Assets/materials/DEV_Stone" },
+            new Obstacle { X = 6.5f, Z = 1, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Bottom" }
+        }
+        };
 
+        Rooms[new Vector2(1, 0)] = new Room
+        {
+            Depth = 8,
+            Width = 12,
+            Obstacles = new List<Obstacle>{
+            new Obstacle { X = -5.5f, Z = 0, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Bottom" },
+            new Obstacle { X = -4.5f, Z = -3, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Corner" },
+            new Obstacle { X = -3.5f, Z = -4, Y = 3.0f, ObjectId = "Game_Assets/materials/DEV_Stone" },
+            new Obstacle { X = -2.5f, Z = 0, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Bottom" },
+            new Obstacle { X = -1.5f, Z = 1, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Corner" },
+            new Obstacle { X = -0.5f, Z = -4, Y = 3.0f, ObjectId = "Game_Assets/materials/DEV_Stone" },
+            new Obstacle { X = 0.5f, Z = 1, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Bottom" },
+            new Obstacle { X = 1.5f, Z = -2, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Corner" },
+            new Obstacle { X = 2.5f, Z = -1, Y = 3.0f, ObjectId = "Game_Assets/materials/DEV_Stone" },
+            new Obstacle { X = 3.5f, Z = 1, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Bottom" },
+            new Obstacle { X = 4.5f, Z = 0, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Corner" },
+            new Obstacle { X = 5.5f, Z = 1, Y = 3.0f, ObjectId = "Game_Assets/materials/DEV_Stone" },
+            new Obstacle { X = 6.5f, Z = -2, Y = 3.0f, ObjectId = "Game_Assets/materials/Wall_DEV_Grey-Bottom" }
+        }
+        };
     }
 
     // Update is called once per frame

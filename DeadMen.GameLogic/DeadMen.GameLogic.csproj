@@ -41,10 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WritersReaders\DebugReader.cs" />
+    <Compile Include="WritersReaders\IReader.cs" />
     <Compile Include="WritersReaders\IWriter.cs" />
     <Compile Include="WritersReaders\DebugWriter.cs" />
+    <Compile Include="WritersReaders\ModelWriters\RoomIOHandler.cs" />
     <Compile Include="WritersReaders\ReleaseWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeadMen.API.Models.csproj">
+      <Project>{30bd8930-491f-4f8a-bfb4-5e3db20ea7bf}</Project>
+      <Name>DeadMen.API.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -5,6 +5,9 @@ using DeadMen.API.Models;
 using System.Linq;
 
 public class MobileAnimationController : MonoBehaviour {
+    public readonly float SPEEDMODIFIER = 200;
+    public readonly float JUMPMODIFIER = 10;
+
     public float Speed_x = 6f;
     public float Speed_z = 2.5f;
     public float Speed_y = 50f;
@@ -94,7 +97,6 @@ public class MobileAnimationController : MonoBehaviour {
     {
         var toMoveX = Right ? 1 : -1;
         rigidBody.AddForce(new Vector3(toMoveX * Speed_x, 0f, 0f));
-        //rigidBody.velocity = new Vector3(toMoveX * Speed_x, GetComponent<Rigidbody>().velocity.y, GetComponent<Rigidbody>().velocity.z);
         anim.SetBool("Moving", true);
 
         if ((toMoveX > 0 && !rightFace) || (toMoveX < 0 && rightFace))
@@ -108,7 +110,6 @@ public class MobileAnimationController : MonoBehaviour {
         var toMoveZ = Fore ? 1 : -1;
 
         rigidBody.AddForce(new Vector3(0f, 0f, toMoveZ * Speed_z));
-        //rigidBody.velocity = new Vector3(GetComponent<Rigidbody>().velocity.x, GetComponent<Rigidbody>().velocity.y, toMoveZ * Speed_z);
         anim.SetBool("Moving", true);
     }
 
@@ -152,8 +153,8 @@ public class MobileAnimationController : MonoBehaviour {
 
     public void InitializeMobileMoveSpeed(Stats mobileModelStats)
     {
-        Speed_x = 0.3f * mobileModelStats.SPD;
-        Speed_z = 0.125f * mobileModelStats.SPD;
-        Speed_y = 2.5f * mobileModelStats.SPD;
+        Speed_x = 0.3f * mobileModelStats.SPD * SPEEDMODIFIER;
+        Speed_z = 0.125f * mobileModelStats.SPD * SPEEDMODIFIER;
+        Speed_y = 2.5f * mobileModelStats.SPD * JUMPMODIFIER;
     }
 }
