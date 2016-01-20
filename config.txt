@@ -1,0 +1,3 @@
+//// testing a configuration file
+screenSetting=fullscreen;
+playeraccount=null;
